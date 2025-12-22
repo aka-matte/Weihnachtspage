@@ -1,11 +1,164 @@
-/* Galerie – Basis */
+:root{
+  --bg1:#07110d;
+  --bg2:#0b1b14;
+  --card: rgba(18, 34, 26, .72);
+  --text:#f4f6f5;
+  --muted: rgba(244,246,245,.78);
+  --gold:#d8b25a;
+  --gold2:#f0d28a;
+  --border: rgba(216,178,90,.22);
+  --shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 450px at 20% 10%, rgba(216,178,90,.13), transparent 60%),
+    radial-gradient(850px 420px at 85% 12%, rgba(240,210,138,.10), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  min-height:100vh;
+}
+
+/* ===== NAV ===== */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+  background:rgba(7,17,13,.62);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  font-weight:700;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  letter-spacing:.3px;
+}
+
+.logo .dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 18px rgba(216,178,90,.55);
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:14px;
+  padding:8px 10px;
+  border-radius:999px;
+  transition: background .15s ease, color .15s ease;
+}
+
+nav a.active, nav a:hover{
+  color:var(--text);
+  background:rgba(255,255,255,.07);
+}
+
+/* ===== LAYOUT ===== */
+.container{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 26px 18px 56px;
+}
+
+h1{
+  font-size:42px;
+  margin:0 0 10px;
+  letter-spacing:-.4px;
+}
+
+.lead{
+  font-size:18px;
+  color:var(--muted);
+  line-height:1.6;
+  margin:0 0 14px;
+}
+
+.small{
+  color:var(--muted);
+  margin:0;
+  line-height:1.5;
+}
+
+/* ===== HERO ===== */
+.hero{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:16px;
+  align-items:stretch;
+}
+
+@media (max-width: 860px){
+  .hero{ grid-template-columns: 1fr; }
+  h1{ font-size:34px; }
+}
+
+/* ===== CARDS ===== */
+.card, .letter{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* ===== BUTTONS ===== */
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:650;
+  color:var(--text);
+  border:1px solid rgba(216,178,90,.35);
+  background: linear-gradient(180deg, rgba(216,178,90,.20), rgba(216,178,90,.08));
+  box-shadow: 0 10px 24px rgba(0,0,0,.22);
+  transition: transform .12s ease;
+}
+
+.btn:hover{ transform: translateY(-1px); }
+
+.btn.btn-secondary{
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  box-shadow:none;
+}
+
+/* ===== GALLERY ===== */
 .gallery{
   margin-top:18px;
   display:grid;
   gap:10px;
 }
+
 .gallery.two{ grid-template-columns: repeat(2, 1fr); }
 .gallery.one{ grid-template-columns: 1fr; }
+
+@media (max-width: 860px){
+  .gallery.two{ grid-template-columns: 1fr; }
+}
 
 .gallery img{
   width:100%;
@@ -16,19 +169,51 @@
   box-shadow:0 12px 32px rgba(0,0,0,.28);
 }
 
-/* 🔧 Individuelle Fokus-Punkte */
+/* 🎯 Bild-Fokus (so wie du’s jetzt “gut” hast) */
+.focus-center{ object-position: center center; }   /* home1 unverändert */
+.focus-home2{ object-position: center 15%; }       /* home2 (anpassbar) */
+.focus-lower{ object-position: center 35%; }       /* mama1 & papa1 weiter runter */
 
-/* home1 – leicht nach oben (passt jetzt gut) */
-.focus-home1{
-  object-position: center 10%;
+/* ===== LETTER ===== */
+.letter h2{
+  margin:0 0 8px;
+  font-size:18px;
+  color:var(--gold2);
 }
 
-/* home2 – exakt wie vorher (Mitte) */
-.focus-center{
-  object-position: center center;
+.letter p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.75;
 }
 
-/* mama1 & papa1 – weiter nach unten */
-.focus-lower{
-  object-position: center 35%;
+/* ===== FOOTER ===== */
+.footer{
+  margin-top:18px;
+  text-align:center;
+  color:rgba(244,246,245,.55);
+  font-size:13px;
+}
+
+/* ===== SNOW ===== */
+.snow{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.snow span{
+  position: absolute;
+  top: -10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  animation-name: snow-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes snow-fall{
+  to{ transform: translateY(110vh); }
 }
