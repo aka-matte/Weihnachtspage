@@ -1,120 +1,34 @@
-:root{
-  --bg1:#07110d;
-  --bg2:#0b1b14;
-  --card: rgba(18, 34, 26, .72);
-  --text:#f4f6f5;
-  --muted: rgba(244,246,245,.78);
-  --gold:#d8b25a;
-  --gold2:#f0d28a;
-  --border: rgba(216,178,90,.22);
-  --shadow: 0 14px 40px rgba(0,0,0,.35);
+/* Galerie – Basis */
+.gallery{
+  margin-top:18px;
+  display:grid;
+  gap:10px;
 }
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(900px 450px at 20% 10%, rgba(216,178,90,.13), transparent 60%),
-    radial-gradient(850px 420px at 85% 12%, rgba(240,210,138,.10), transparent 55%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-  min-height:100vh;
-}
-
-/* Navigation */
-.nav{
-  position:sticky; top:0; z-index:10;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 18px;
-  background:rgba(7,17,13,.62);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.logo{font-weight:700; display:flex; gap:10px; align-items:center}
-.logo .dot{
-  width:9px; height:9px; border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 18px rgba(216,178,90,.55);
-}
-nav a{
-  color:var(--muted); text-decoration:none; margin-left:14px;
-  padding:8px 10px; border-radius:999px;
-}
-nav a.active, nav a:hover{
-  color:var(--text); background:rgba(255,255,255,.07);
-}
-
-.container{max-width:920px; margin:0 auto; padding:26px 18px 56px}
-
-/* Hero */
-.hero{
-  display:grid; grid-template-columns:1.15fr .85fr; gap:16px;
-}
-@media (max-width:860px){ .hero{grid-template-columns:1fr} }
-
-h1{font-size:42px; margin:0 0 10px}
-.lead{font-size:18px; color:var(--muted); line-height:1.6}
-
-.card, .letter{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:16px;
-  box-shadow:var(--shadow);
-}
-
-.buttons{display:flex; gap:10px; margin-top:10px}
-.btn{
-  text-decoration:none; padding:10px 14px; border-radius:12px;
-  font-weight:650; color:var(--text);
-  border:1px solid rgba(216,178,90,.35);
-  background:linear-gradient(180deg, rgba(216,178,90,.20), rgba(216,178,90,.08));
-}
-.btn.btn-secondary{
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-}
-
-/* Galerie – STANDARD: Fokus weiter oben */
-.gallery{ margin-top:18px; display:grid; gap:10px }
-.gallery.two{ grid-template-columns: repeat(2, 1fr) }
-.gallery.one{ grid-template-columns: 1fr }
+.gallery.two{ grid-template-columns: repeat(2, 1fr); }
+.gallery.one{ grid-template-columns: 1fr; }
 
 .gallery img{
   width:100%;
   height:260px;
   object-fit:cover;
-
-  /* WICHTIG: weiter nach oben, damit Köpfe nicht abgeschnitten werden */
-  object-position: center 10%;
-
   border-radius:16px;
   border:1px solid rgba(255,255,255,.10);
   box-shadow:0 12px 32px rgba(0,0,0,.28);
 }
 
-/* Ausnahme: Bild bleibt mittig (home2) */
-.focus-center{ object-position: center center; }
+/* 🔧 Individuelle Fokus-Punkte */
 
-.letter h2{margin:0 0 8px; font-size:18px; color:var(--gold2)}
-.letter p{margin:0; color:var(--muted); line-height:1.75}
-
-.footer{
-  margin-top:18px; text-align:center;
-  color:rgba(244,246,245,.55); font-size:13px;
+/* home1 – leicht nach oben (passt jetzt gut) */
+.focus-home1{
+  object-position: center 10%;
 }
 
-/* ❄️ Schnee */
-.snow{
-  position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:999;
+/* home2 – exakt wie vorher (Mitte) */
+.focus-center{
+  object-position: center center;
 }
-.snow span{
-  position:absolute; top:-10px;
-  background:rgba(255,255,255,.9);
-  border-radius:50%;
-  animation-name:snow-fall;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
+
+/* mama1 & papa1 – weiter nach unten */
+.focus-lower{
+  object-position: center 35%;
 }
-@keyframes snow-fall{ to{ transform: translateY(110vh) } }
