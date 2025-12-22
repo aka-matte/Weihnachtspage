@@ -1,3 +1,5 @@
+console.log("❄️ snow.js geladen");
+
 /*
   ❄️ Eleganter Schneefall für Weihnachtsseite
   – ruhig, dezent, mobilfreundlich
