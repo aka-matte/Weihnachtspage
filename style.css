@@ -151,13 +151,13 @@ h1{
 /* 🎯 FOKUS-REGELN */
 /* Mobile (Standard): perfekt so wie jetzt */
 .focus-center{
-  object-position: center 25%;
+  object-position: center 30%;
 }
 
 /* 💻 Desktop & Laptop: Bild etwas weiter nach oben ziehen */
 @media (min-width: 861px){
   .focus-center{
-    object-position: center 25%;
+    object-position: center 45%;
   }
 }
 
