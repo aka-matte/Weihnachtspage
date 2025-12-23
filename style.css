@@ -170,7 +170,7 @@ h1{
 }
 
 /* 🎯 Bild-Fokus (so wie du’s jetzt “gut” hast) */
-.focus-center{ object-position: center 50%; }   /* home1 unverändert */
+.focus-center{ object-position: center 60%; }   /* home1 unverändert */
 .focus-home2{ object-position: center 20%; }       /* home2 (anpassbar) */
 .focus-lower{ object-position: center 35%; }       /* mama1 & papa1 weiter runter */
 
