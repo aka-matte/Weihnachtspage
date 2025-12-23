@@ -42,7 +42,6 @@ body{
   display:flex;
   gap:10px;
   align-items:center;
-  letter-spacing:.3px;
 }
 
 .logo .dot{
@@ -59,7 +58,6 @@ nav a{
   margin-left:14px;
   padding:8px 10px;
   border-radius:999px;
-  transition: background .15s ease, color .15s ease;
 }
 
 nav a.active, nav a:hover{
@@ -69,28 +67,24 @@ nav a.active, nav a:hover{
 
 /* ===== LAYOUT ===== */
 .container{
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 26px 18px 56px;
+  max-width:920px;
+  margin:0 auto;
+  padding:26px 18px 56px;
 }
 
 h1{
   font-size:42px;
   margin:0 0 10px;
-  letter-spacing:-.4px;
 }
 
 .lead{
   font-size:18px;
   color:var(--muted);
   line-height:1.6;
-  margin:0 0 14px;
 }
 
 .small{
   color:var(--muted);
-  margin:0;
-  line-height:1.5;
 }
 
 /* ===== HERO ===== */
@@ -98,7 +92,6 @@ h1{
   display:grid;
   grid-template-columns: 1.15fr .85fr;
   gap:16px;
-  align-items:stretch;
 }
 
 @media (max-width: 860px){
@@ -108,42 +101,33 @@ h1{
 
 /* ===== CARDS ===== */
 .card, .letter{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: var(--shadow);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow);
 }
 
 /* ===== BUTTONS ===== */
 .buttons{
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
   margin-top:10px;
 }
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
   text-decoration:none;
   padding:10px 14px;
   border-radius:12px;
   font-weight:650;
   color:var(--text);
   border:1px solid rgba(216,178,90,.35);
-  background: linear-gradient(180deg, rgba(216,178,90,.20), rgba(216,178,90,.08));
-  box-shadow: 0 10px 24px rgba(0,0,0,.22);
-  transition: transform .12s ease;
+  background:linear-gradient(180deg, rgba(216,178,90,.20), rgba(216,178,90,.08));
 }
-
-.btn:hover{ transform: translateY(-1px); }
 
 .btn.btn-secondary{
   border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  box-shadow:none;
+  background:rgba(255,255,255,.06);
 }
 
 /* ===== GALLERY ===== */
@@ -153,12 +137,7 @@ h1{
   gap:10px;
 }
 
-.gallery.two{ grid-template-columns: repeat(2, 1fr); }
 .gallery.one{ grid-template-columns: 1fr; }
-
-@media (max-width: 860px){
-  .gallery.two{ grid-template-columns: 1fr; }
-}
 
 .gallery img{
   width:100%;
@@ -169,10 +148,18 @@ h1{
   box-shadow:0 12px 32px rgba(0,0,0,.28);
 }
 
-/* 🎯 Bild-Fokus (so wie du’s jetzt “gut” hast) */
-.focus-center{ object-position: center 60%; }   /* home1 unverändert */
-.focus-home2{ object-position: center 20%; }       /* home2 (anpassbar) */
-.focus-lower{ object-position: center 35%; }       /* mama1 & papa1 weiter runter */
+/* 🎯 FOKUS-REGELN */
+/* Mobile (Standard): perfekt so wie jetzt */
+.focus-center{
+  object-position: center 20%;
+}
+
+/* 💻 Desktop & Laptop: Bild etwas weiter nach oben ziehen */
+@media (min-width: 861px){
+  .focus-center{
+    object-position: center 10%;
+  }
+}
 
 /* ===== LETTER ===== */
 .letter h2{
